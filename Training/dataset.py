@@ -98,7 +98,7 @@ def get_mean_std(train_data, transform):
 if __name__ == '__main__':
 
 
-    df = pd.read_csv('F:/Deep Learning/appliedai_submissions/Self Case Study/Case Study 2/processed_data_v2.csv')
+    df = pd.read_csv('../processed_data_v2.csv')
     dataset = ImageFolder(df[df['hasTable']==1])
 
     img_num = 0
