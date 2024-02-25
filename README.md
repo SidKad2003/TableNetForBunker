@@ -4,6 +4,15 @@ Research Paper : https://arxiv.org/abs/2001.01469
 
 ![TableNet Architecture](./images/model_arch.png)
 
+## My Comprehension
+[What is Computer Vision?](https://www.youtube.com/watch?v=-4E2-0sxVUM)
+
+[Medium Article](https://asagar60.medium.com/tablenet-deep-learning-model-for-end-to-end-table-detection-and-tabular-data-extraction-from-b1547799fe29) used as Guide for [TableNet](https://arxiv.org/pdf/2001.01469.pdf)
+
+Segmentation: [What is Semantic Segmentation?](https://www.youtube.com/watch?v=5QUmlXBb0MY)
+
+[what are Masks and Contours in Computer Vision?](https://www.google.com/search?q=what+are+masks+and+contours+computer+vision&oq=what+are+masks+and+contours+computer+vision&gs_lcrp=EgZjaHJvbWUyBggAEEUYOdIBCDM4ODhqMGo0qAIAsAIA&sourceid=chrome&ie=UTF-8)
+
 ## Description
 In this project we will implement an end-to-end Deep learning architecture which will not only localize the Table in an image, but will also generate structure of Table by segmenting columns in that Table. After detecting Table structure from the image, we will use Pytesseract OCR package to read the contents of the Table.
 
