@@ -53,6 +53,13 @@ While the BoW model can provide some insights into sentiment analysis, it may no
 ### How do RNNs actually Work?
 [Krish Naik Explains ForwardPass in RNNs](https://www.youtube.com/watch?v=u8utlK_c5C8)
 
+### Similarly for LSTMs
+[StatsQuest for LSTMs](https://www.youtube.com/watch?v=YCzL96nL7j0&list=PLblh5JKOoLUIxGDQs4LFFD--41Vzf-ME1&index=17)
+
+Check out how Neural Nets consider Context to develop an inituition about words considered. [Word Embeddings and Word2Vec](https://www.youtube.com/watch?v=viZrOnJclY0&list=PLblh5JKOoLUIxGDQs4LFFD--41Vzf-ME1&index=17)
+
+[Seq2Seq and Encoder-Decoder model](https://www.youtube.com/watch?v=L8HKweZIOmg&list=PLblh5JKOoLUIxGDQs4LFFD--41Vzf-ME1&index=18)
+
 ## Description
 In this project we will implement an end-to-end Deep learning architecture which will not only localize the Table in an image, but will also generate structure of Table by segmenting columns in that Table. After detecting Table structure from the image, we will use Pytesseract OCR package to read the contents of the Table.
 
