@@ -96,6 +96,10 @@ The final fully connected layer(s) in the network often lead to an output layer,
 
 The output from the network is compared to the ground truth labels using a loss function, and optimization algorithms are used to adjust the network parameters to minimize the loss and improve the model's performance.
 
+### Table Row Extraction 
+Scroll down to Table Row Extraction at [Kaggle](https://www.kaggle.com/code/ritvik1909/tablenet)
+
+
 <!-- CNNs can be understood as Images beign passed through a series of additional layers before finally into the "blackbox". 
 
 these layers are responsible to convert and generate "Feature maps" from the inputs they receive, i.e Images!!!
