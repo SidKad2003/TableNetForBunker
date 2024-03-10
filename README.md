@@ -50,7 +50,6 @@ Check out how Neural Nets consider Context to develop an inituition about words 
 
 [Seq2Seq and Encoder-Decoder model](https://www.youtube.com/watch?v=L8HKweZIOmg&list=PLblh5JKOoLUIxGDQs4LFFD--41Vzf-ME1&index=18)
 
-## Convoluted Neural Networks
 ## Convolutional Neural Networks (CNNs)
 
 CNNs are a type of deep neural network specifically designed for processing and analyzing visual data, such as images. They consist of multiple layers, each with its own specific function in extracting and learning features from the input data.
