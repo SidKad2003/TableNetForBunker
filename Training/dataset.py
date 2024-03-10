@@ -107,10 +107,10 @@ if __name__ == '__main__':
         save_image(img_dict["table_image"], f'table_image_{img_num}.png')
         save_image(img_dict["column_image"], f'column_image_{img_num}.png')
 
-        img_num += 1
+    #     img_num += 1
 
-        if img_num == 6:
-            break
+    #     if img_num == 6:
+    #         break
 
     """
     df = pd.read_csv(config.DATAPATH)
