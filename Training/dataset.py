@@ -55,14 +55,30 @@ class ImageFolder(nn.Module):
         img_path, table_mask_path, col_mask_path = self.df.iloc[index, 0], self.df.iloc[index, 1], self.df.iloc[index, 2]
         print("Image path: ", img_path,"\n", "table path: ", table_mask_path,"\n", "column path: ",col_mask_path)
         image = np.array(Image.open("../" + img_path))
-        table_image = torch.FloatTensor(np.array(Image.open("../" + table_mask_path))/255.0).reshape(1,1024,1024)
-        column_image = torch.FloatTensor(np.array(Image.open("../" + col_mask_path))/255.0).reshape(1,1024,1024)
-
-
-        table_image_np = np.array(Image.open("../" + table_mask_path))/255.0
-        print("Table image shape:", table_image_np.shape)
-        column_image_np = np.array(Image.open("../" + col_mask_path))/255.0
-        print("Column image shape:", column_image_np.shape)
+        temp = (Image.open("../" + col_mask_path))
+        temp2 = (Image.open("../" + table_mask_path))
+        if temp.mode != "L":  # Check if it's already grayscale (mode "L")
+            temp = temp.convert("L")
+        column_image = torch.FloatTensor(np.array(temp)/255.0).reshape(1,1024,1024)
+        if temp2.mode != "L":  # Check if it's already grayscale (mode "L")
+            temp2 = temp2.convert("L")
+        table_image = torch.FloatTensor(np.array(temp2)/255.0).reshape(1,1024,1024)
+        # grayscale_image = cv2.cvtColor(temp.transpose(1, 2, 0), cv2.COLOR_RGB2GRAY)
+        # grayscale_image = np.expand_dims(grayscale_image, axis=0)
+        # pil_image = Image.fromarray(temp.transpose(1, 2, 0).astype('uint8'))
+        # grayscale_image = pil_image.convert('L')
+        # grayscale_array = np.array(grayscale_image)
+        # grayscale_array = np.expand_dims(grayscale_array, axis=0)
+        
+        # table_image_np = np.array(Image.open("../" + table_mask_path))/255.0
+        # print("Table image shape:", table_image_np.shape)
+        # column_image_np = np.array(Image.open("../" + col_mask_path))/255.0
+        # print("Column image shape:", column_image_np.shape)
+        # column_image = temp.mean(axis=0)  # Average across channels
+        # column_image = torch.FloatTensor(column_image).reshape(1, 1024, 1024)
+        # column_image = torch.FloatTensor(np.array(Image.open("../" + col_mask_path))/255.0).reshape(1,1024,1024)
+        # column_image = grayscale_image/255.0
+        # table_image = torch.FloatTensor(np.array(Image.open("../" + table_mask_path))/255.0).reshape(1,1024,1024)
         """
         augmentations = self.transform(
             image = image, 
