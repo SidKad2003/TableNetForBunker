@@ -53,10 +53,16 @@ class ImageFolder(nn.Module):
     def __getitem__(self, index):
 
         img_path, table_mask_path, col_mask_path = self.df.iloc[index, 0], self.df.iloc[index, 1], self.df.iloc[index, 2]
+        print("Image path: ", img_path,"\n", "table path: ", table_mask_path,"\n", "column path: ",col_mask_path)
         image = np.array(Image.open("../" + img_path))
         table_image = torch.FloatTensor(np.array(Image.open("../" + table_mask_path))/255.0).reshape(1,1024,1024)
         column_image = torch.FloatTensor(np.array(Image.open("../" + col_mask_path))/255.0).reshape(1,1024,1024)
 
+
+        table_image_np = np.array(Image.open("../" + table_mask_path))/255.0
+        print("Table image shape:", table_image_np.shape)
+        column_image_np = np.array(Image.open("../" + col_mask_path))/255.0
+        print("Column image shape:", column_image_np.shape)
         """
         augmentations = self.transform(
             image = image, 
@@ -107,10 +113,10 @@ if __name__ == '__main__':
         save_image(img_dict["table_image"], f'table_image_{img_num}.png')
         save_image(img_dict["column_image"], f'column_image_{img_num}.png')
 
-    #     img_num += 1
+        img_num += 1
 
-    #     if img_num == 6:
-    #         break
+        if img_num == 6:
+            break
 
     """
     df = pd.read_csv(config.DATAPATH)
