@@ -153,6 +153,13 @@ Look for an Example of Column 'A' in [GPT Chat Link](https://chat.openai.com/sha
 
 This is how TableNet indentifies Table and Table Structure in an image.
 
+### What exactly is convolution and How CNNs work.
+This section should be focusing on [Convolution](https://www.youtube.com/watch?v=KuXjwB4LzSA) as a concept and how [Kernels or Filters](https://www.youtube.com/watch?v=jDe5BAsT2-Y) work in order to capture features from input image(or a feature map), how these operations affect the shapes of images and eventually looking into the [Forward and Backward propogation cycle](https://www.youtube.com/watch?v=Lakz2MoHy6o) of a CNN.
+
+[GPT Link](https://chat.openai.com/share/ff537a5d-cf2b-481a-a577-d3a45f13e8c1)
+
+[Gemini Link](https://gemini.google.com/app/4cfbdcf1e8794ab0)
+
 ## Description
 In this project we will implement an end-to-end Deep learning architecture which will not only localize the Table in an image, but will also generate structure of Table by segmenting columns in that Table. After detecting Table structure from the image, we will use Pytesseract OCR package to read the contents of the Table.
 
