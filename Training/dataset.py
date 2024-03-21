@@ -53,7 +53,7 @@ class ImageFolder(nn.Module):
     def __getitem__(self, index):
 
         img_path, table_mask_path, col_mask_path = self.df.iloc[index, 0], self.df.iloc[index, 1], self.df.iloc[index, 2]
-        print("Image path: ", img_path,"\n", "table path: ", table_mask_path,"\n", "column path: ",col_mask_path)
+        # print("Image path: ", img_path,"\n", "table path: ", table_mask_path,"\n", "column path: ",col_mask_path)
         image = np.array(Image.open("../" + img_path))
         temp = (Image.open("../" + col_mask_path))
         temp2 = (Image.open("../" + table_mask_path))

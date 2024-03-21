@@ -36,10 +36,13 @@ def train_on_epoch(data_loader, model, optimizer, loss, scaler, threshold = 0.5)
     loop = tqdm(data_loader, leave=True)
     
     for batch_idx, img_dict in enumerate(loop):
+        if batch_idx > 0:
+            print("Early Break for Batch: ", batch_idx)
+            break
         image           = img_dict["image"].to(config.DEVICE)
         table_image     = img_dict["table_image"].to(config.DEVICE)
         column_image     = img_dict["column_image"].to(config.DEVICE)
-
+        print("Image Shape: ", image.shape, "table_image Shape: ", table_image.shape, "column_image Shape: ", column_image.shape)
         with torch.cuda.amp.autocast():
             table_out, column_out  = model(image)
             t_loss, c_loss = loss(table_out, table_image, column_out, column_image)
@@ -192,31 +195,34 @@ if __name__ == '__main__':
     #for early stopping
     i = 0
 
+    # for epoch in range(last_epoch + 1,config.EPOCHS):
     for epoch in range(last_epoch + 1,config.EPOCHS):
         print("="*30)
         start = time.time()
 
         tr_metrics = train_on_epoch(train_loader, model, optimizer, loss, scaler, 0.5)
-        te_metrics = test_on_epoch(test_loader, model, loss, threshold = 0.5)
+        # te_metrics = test_on_epoch(test_loader, model, loss, threshold = 0.5)
 
         write_summary(writer, tr_metrics, te_metrics, epoch)
 
         end = time.time()
 
-        display_metrics(epoch, tr_metrics,te_metrics)
+        # display_metrics(epoch, tr_metrics,te_metrics)
+        display_metrics(epoch, tr_metrics)
 
-        if last_table_f1 < te_metrics['table_f1'] or last_col_f1 < te_metrics['col_f1']:
+        # if last_table_f1 < te_metrics['table_f1'] or last_col_f1 < te_metrics['col_f1']:
             
-            #i = 0
-            last_table_f1 = te_metrics['table_f1']
-            last_col_f1 = te_metrics['col_f1']
+        #     # i = 0
+        #     last_table_f1 = te_metrics['table_f1']
+        #     last_col_f1 = te_metrics['col_f1']
 
-            checkpoint = {'epoch': epoch, 'state_dict': model.state_dict(), 'optimizer': optimizer.state_dict(), 'train_metrics': tr_metrics, 'test_metrics': te_metrics}
-            save_checkpoint(checkpoint, checkpoint_name)
-        #else:
+        #     checkpoint = {'epoch': epoch, 'state_dict': model.state_dict(), 'optimizer': optimizer.state_dict(), 'train_metrics': tr_metrics, 'test_metrics': te_metrics}
+        #     save_checkpoint(checkpoint, checkpoint_name)
+        # else:
         #    i += 1
+        i += 1
         
-        #if i == 12:
-        #    print("Early Stopping")
-        #    break
+        if i == 2:
+           print("Early Stopping")
+           break
 
