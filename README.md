@@ -100,7 +100,7 @@ The output from the network is compared to the ground truth labels using a loss 
 Scroll down to Table Row Extraction at [Kaggle](https://www.kaggle.com/code/ritvik1909/tablenet)
 
 
-<!-- CNNs can be understood as Images beign passed through a series of additional layers before finally into the "blackbox". 
+CNNs can be understood as Images beign passed through a series of additional layers before finally into the "blackbox". 
 
 these layers are responsible to convert and generate "Feature maps" from the inputs they receive, i.e Images!!!
 
@@ -108,7 +108,7 @@ Since, Algos/NNs understand nothing but numbers, the images are converted onto m
 
 Hence, we utilize convolution, padding and pooling. these are performed by convolution, padding and pooling layers respectively. each one of them either captures certain features and generate feature maps which are nothing but projections(in a way) of the features captured, and/or reduce the overall image size.
 
-these layers makes use of filters know as "Kernels" in order to create feature maps.  -->
+these layers makes use of filters know as "Kernels" in order to create feature maps. 
 
 
 [Overview of how CNNs works](https://www.youtube.com/watch?v=-4E2-0sxVUM)
@@ -159,6 +159,22 @@ This section should be focusing on [Convolution](https://www.youtube.com/watch?v
 [GPT Link](https://chat.openai.com/share/ff537a5d-cf2b-481a-a577-d3a45f13e8c1)
 
 [Gemini Link](https://gemini.google.com/app/4cfbdcf1e8794ab0)
+
+## RNNs and LSTMs
+To understand how exactly do RNNs and LSTMs work:
+
+[Gemini Link](https://gemini.google.com/app/b3a9e9fb9b995ae0)
+
+[GPT Link](https://chat.openai.com/share/07103364-0bc6-408b-ab9c-de7e1e43532b)
+
+[Implementing RNN in Pytorch by StatQuest](https://www.youtube.com/watch?v=RHGiXPuo_pI)
+
+[Andrej Karpathy Blog about RNNs](https://karpathy.github.io/2015/05/21/rnn-effectiveness/)
+[Andrej Karpathy Blog](https://karpathy.github.io/)
+
+[Medium Article about LSTMs](https://towardsdatascience.com/the-lstm-reference-card-6163ca98ae87)
+
+[Sequence models by Andrew Ng](https://www.youtube.com/watch?v=S7oA5C43Rbc)
 
 ## Description
 In this project we will implement an end-to-end Deep learning architecture which will not only localize the Table in an image, but will also generate structure of Table by segmenting columns in that Table. After detecting Table structure from the image, we will use Pytesseract OCR package to read the contents of the Table.
